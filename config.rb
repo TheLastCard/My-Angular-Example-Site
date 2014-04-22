@@ -2,9 +2,9 @@
 
 #Folder settings
 relative_assets = true      #because we're not working from the root
-css_dir = "styles"          #where the CSS will saved
-sass_dir = "styles"           #where our .scss files are
-images_dir = "img"    #the folder with your images
+css_dir = "app/styles"          #where the CSS will saved
+sass_dir = "app/styles"           #where our .scss files are
+images_dir = "app/img"    #the folder with your images
 
 # You can select your preferred output style here (can be overridden via the command line):
 output_style = :expanded # After dev :compressed
