@@ -1,33 +1,36 @@
 <div class="header">
   <ul class="nav nav-tabs navbar-inverse">
     <li class="active"><a ng-href="#">Angular eksempler</a></li>
-    <li><a ng-href="#">Flere eksempler</a></li>
+    <li><a ng-href="#/FlereEksempler">Flere eksempler</a></li>
     <li><a ng-href="#">Andre ting</a></li>
   </ul>
 </div>
 
 <div class="container">
   <h3 class="overskrift">{{eksempler}}</h3>
+
   <label for="sortorder">Rekkefølge:</label>
   <select ng-model="listOrder" name="sortorder">
-  <option value="" selected="selected">Ingen</option>
+    <option value="" selected="selected">Ingen</option>
   	<option value="name">Stigende</option>
   	<option value="-name">Synkende</option>
   </select>
-  <label for="search">Search</label>
-  <input type="text" ng-model="search">
+
+  <label for="searchList">Search</label>
+  <input type="text" ng-model="searchList">
+  
   <div class="panel-group" id="accordion">
-      <div class="panel panel-default" ng-repeat="item in list | orderBy:listOrder | filter:search">
+      <div class="panel panel-default" ng-repeat="item in list | orderBy:listOrder | filter:searchList">
         <div class="panel-heading">
           <h4 class="panel-title">
             <span class="glyphicon glyphicon-collapse-down openUp"><a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}">
-              {{item.name}}</span>
+              <span ng-bind-html="item.name | highlight:searchList"></span></span>
             </a>
           </h4>
         </div>
         <div id="collapse{{$index}}" class="panel-collapse collapse">
           <div class="panel-body">
-            {{item.text}}
+            <span ng-bind-html="item.text | highlight:searchList"></span>
           </div>
         </div>
       </div>
