@@ -1,36 +1,35 @@
 <div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
+  <ul class="nav nav-tabs navbar-inverse">
+    <li class="active"><a ng-href="#">Angular eksempler</a></li>
+    <li><a ng-href="#">Flere eksempler</a></li>
+    <li><a ng-href="#">Andre ting</a></li>
   </ul>
-  <h3 class="text-muted">CV_Site</h3>
 </div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
-
-<div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+<div class="container">
+  <h3 class="overskrift">{{eksempler}}</h3>
+  <label for="sortorder">Rekkefølge:</label>
+  <select ng-model="listOrder" name="sortorder">
+  <option value="" selected="selected">Ingen</option>
+  	<option value="name">Stigende</option>
+  	<option value="-name">Synkende</option>
+  </select>
+  <label for="search">Search</label>
+  <input type="text" ng-model="search">
+  <div class="panel-group" id="accordion">
+      <div class="panel panel-default" ng-repeat="item in list | orderBy:listOrder | filter:search">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <span class="glyphicon glyphicon-collapse-down openUp"><a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}">
+              {{item.name}}</span>
+            </a>
+          </h4>
+        </div>
+        <div id="collapse{{$index}}" class="panel-collapse collapse">
+          <div class="panel-body">
+            {{item.text}}
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
