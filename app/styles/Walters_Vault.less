@@ -1,0 +1,286 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24.mar.2014, 15:20:41
+    Author     : Walter
+*/
+
+/****** WALTERS VAULT V1.0 ******/
+
+/*imports*/
+/*@import "import_me.less";*/
+
+/*classes*/
+.transition (@where: all, @seconds: 0.25s){
+    transition:               @arguments;
+    -webkit-transition:       @arguments;
+}
+
+.transform-origin (@xAxis: 50%, @yAxis:50%){
+    transform-origin:         @arguments;
+    -ms-transform-origin:     @arguments;
+    -webkit-transform-origin: @arguments; /* Chrome, Safari, Opera */
+}
+
+.rotate(@amount: 0deg){
+    transform:         rotate(@amount);
+    -ms-transform:     rotate(@amount); /* IE 9 */
+    -webkit-transform: rotate(@amount); /* Chrome, Safari, Opera */
+}
+
+.border-radius(@top-left: 0px, @top-right:0px, @bottom-right:0px, @bottom-left:0px){
+    border-top-left-radius:     @top-left;
+    border-top-right-radius:    @top-right;
+    border-bottom-right-radius: @bottom-right;
+    border-bottom-left-radius:  @bottom-left;
+
+}
+
+/*DEFINES*/
+@vaultWidth: 480px;
+@vaultHeigth: 320px;
+@basecolor: hsla(0,0%,100%,1);
+@vaultGitcolor: hsla(20,90%,50%,1);
+@wigcolor: hsla(280,100%,50%,1);
+@lesscolor: hsla(345,100%,50%,1);
+@linkedincolor: hsla(230,100%,50%,1);
+@shadowcolor: #AAA;
+
+/****** MAIN CONTAINER FOR THE VAULT ITSELF ******/
+body{
+	overflow-x: hidden;
+}
+.closeVault{
+    position: absolute;
+    color: fadeout(@basecolor, 25%);
+    width: 30px;
+    font-size: 2em;
+    font-weight: bold;
+    background-color:darken(fadeout(@basecolor, 75%), 25%);
+    text-align: center;
+    margin: -532px 0 0 60%;
+    box-shadow: 1px 1px 2px @shadowcolor;
+    clip: rect(50px,30px,50px,0px);
+    .transition();
+    &:hover {
+        background-color: darken(fadeout(@basecolor, 50%), 25%);
+        cursor:pointer;
+    }
+}
+
+.VaultContainer{
+    width: @vaultWidth;
+    height: @vaultHeigth;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    margin: -500px auto 0 auto;
+    font-family: 'Share Tech', sans-serif;
+}
+
+.leftGate, .rightGate{
+    z-index: 2;
+    float:left; 
+    display: none;
+}
+.leftGate{
+    width: @vaultWidth/2;
+    height: 100%;
+    box-shadow: inset 2px 5px 5px #111;
+}
+.rightGate{
+    width: @vaultWidth/2;
+    height: 100%;
+    box-shadow: inset -5px 5px 5px #111;
+}
+.mainGate{
+    position: absolute;
+    z-index: 3;
+    width: @vaultWidth;
+    height: @vaultHeigth;
+    
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+/*STUFF BEHIND THE GATES*/
+.behindPorts{
+    background-color: #CCC;
+    box-shadow: inset -4px 4px 8px #111,inset 4px 4px 8px #111;
+    border-left: inset 1px solid hsla(0,0%,0%,0);
+    border-right: inset 1px solid hsla(0,0%,0%,0);
+    .transition();
+    .transform-origin(50%,0%);
+    height: @vaultHeigth;
+    width: 0px;
+    margin-left: @vaultWidth/2;
+   
+    a{
+        .transition();
+        .transform-origin(50%,0%);
+        text-decoration: none;
+        position: absolute;
+        display: none;
+        color: fadeout(@basecolor, 25%);
+        text-align: center;
+        margin: 5px 5% 0 0;
+        width: 100%;
+        &:hover{
+            background-color: darken(fadeout(@basecolor, 75%),100%);
+            cursor: pointer;
+        }
+    }
+
+    h2 {
+        font-size: 2em;
+        margin: 0 0 0 0;
+    }
+}
+
+/*GATE TEXT*/
+.gateTextLEFT,
+.gateTextRIGHT{
+    font-weight: bold;
+    text-align: center;
+    width: @vaultWidth;
+    height: @vaultHeigth;
+    position: absolute;
+    overflow: hidden;
+    
+    div {
+        width: 250px;
+        height: 250px;
+        border: solid 15px darken(fadeout(@basecolor, 75%),50%);
+        color: darken(fadeout(@basecolor, 75%),50%);
+        border-radius:50%;
+        font-size: 150px;
+        margin: 35px 0px 0px 100px;
+        position: absolute;
+    } 
+
+    h1 {
+        margin-top: 40px;
+    }
+}
+.gateTextLEFT{
+    clip: rect(0px,240px,@vaultHeigth,0px);
+}
+.gateTextRIGHT{
+    clip: rect(0px,@vaultWidth,@vaultHeigth,240px);
+}
+
+/*Bottom buttons under here*/
+.lessExample,
+.linkedIn,
+.vaultGit,
+.vaultWIG {
+    color: fadeout(@basecolor, 25%);
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    box-shadow: 1px -1px 2px darken(@shadowcolor, 25%);
+    .transition();
+    .transform-origin(0%,0%);
+    .rotate(90deg);
+    .border-radius(0px,5px,15px,0);
+    position: absolute;
+}
+
+.VaultContainer{
+    .buttonTags{
+        width: 480px;
+        height: 200px;
+
+        .vaultWIG{
+            width: 190px;
+            background-color: fadeout(@wigcolor, 75%);
+            clip: rect(-5px,0px,50px,0px);
+            margin: 0 0 0 250px;
+
+            &:hover{
+                background-color: lighten(fadeout(@wigcolor, 50%), 15%);
+                cursor: pointer;
+                width: 215px;
+            }
+            span{
+                font-family: verdana, sans-serif;
+            }       
+        }
+        
+        .vaultGit{
+            width: 200px;
+            background-color: fadeout(@vaultGitcolor, 75%);
+            clip: rect(-5px,0px,50px,0px);
+            margin: 0 0 0 350px;
+
+            &:hover{
+                background-color: lighten(fadeout(@vaultGitcolor, 50%), 15%);
+                cursor: pointer;
+                width: 225px;
+            }
+            span{
+                font-family: verdana, sans-serif;
+            }   
+        }
+
+        .lessExample{
+            width: 125px;
+            background-color: fadeout(@lesscolor, 75%);
+            clip: rect(-5px,0px,50px,0px);
+            margin: 0 0 0 300px;
+
+            &:hover{
+                background-color: lighten(fadeout(@lesscolor, 50%), 15%);
+                cursor: pointer;
+                width: 150px;
+            }
+            span{
+                font-family: verdana, sans-serif;
+            }
+        }
+
+        .linkedIn{
+            width: 75px;
+            background-color: fadeout(@linkedincolor, 75%);
+            clip: rect(-5px,0px,50px,0px);
+            margin-left: 400px;
+            
+            &:hover{
+                background-color: lighten(fadeout(@linkedincolor, 50%), 15%);
+                cursor: pointer;
+                width: 100px;
+            }
+            a{
+                text-decoration: none;
+                color: fadeout(@basecolor, 25%);
+            }
+
+        }
+    }
+}    
+
+
+
+/*Colors for the Less example*/
+.gra{
+    color: gray;
+}
+
+.brw{
+    color: #b3975b;
+}
+.ora{
+    color: #ef9f13;
+}
+.blue{
+    color: #0500cd;
+}
+.yel{
+    color: #fff8ac;
+}
+.whi {
+    color: white;
+}

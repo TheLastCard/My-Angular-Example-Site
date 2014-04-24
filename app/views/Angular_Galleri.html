@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="header">
+    <ul class="nav nav-tabs navbar">
+      <li><a ng-href="#">CV ( jQuery )</a></li>
+      <li><a ng-href="#/Angular">Angular eksempler</a></li>
+      <li class="active"><a ng-href="#/AngularGalleri">Angular galleri</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container"><h3 style="border-bottom: none !important">Bildegalleri lagd med Angular</h3></div>
+<div class="wIG" ng-controller="Angular_GalleriCtrl" ng-cloak>
+	
+	<div class="wIGimgWrapper" >
+		<span class="arrowLeft glyphicon glyphicon-chevron-left" ng-click="prev()"></span>
+			<img src="" ng-src="{{currentImage}}" alt="Walters image gallery made with Angular" class="show-hide" ng-hide="fadeNow" />
+		<span class="arrowRight glyphicon glyphicon-chevron-right" ng-click="next()"></span>
+	</div>
+
+</div>
+<br>
+<a href="documents/wIG_images.json" target="_blank">JSON fil</a>
+<footer><small><i>Content &COPY;copyright 2014 Walter K. Dahl</i></small></footer>

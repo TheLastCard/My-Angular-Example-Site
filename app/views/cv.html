@@ -1,0 +1,63 @@
+<div class="container" ng-cloak>
+	<div class="header">
+	  <ul class="nav nav-tabs navbar">
+	    <li class="active"><a ng-href="#">CV ( jQuery )</a></li>
+	    <li><a ng-href="#/Angular">Angular eksempler</a></li>
+	    <li><a ng-href="#/AngularGalleri">Angular galleri</a></li>
+	  </ul>
+	</div>
+</div>
+<h1 style="font-size: 30px; color: #bbb;"></h1><br>
+<div class="backgroundImagesContainer">
+	<span style="color: red" ng-hide="hideTekst">{{infoTekst}}</span>
+	<div class="NotesContainer">
+	    <div class="noteImage"></div>
+	    <div class="Note"></div>
+	</div>
+	</div>
+
+	<!--X button to close vault it vault is open-->
+	<div class="closeVault">X</div>
+	<!-- CONTAINTER FOR THE VAULT ITSELF -->
+	<div class="VaultContainer">
+	<!-- SINK-IN EFFECT-->
+	<div class="mainGate"></div>
+
+	<!--//LEFT GATE-->
+	<div class="leftGate"></div>
+	<div class="gateTextLEFT">
+	    <div><h1  ng-click="hentTekst()">CV</h1></div>
+	</div>
+
+	<!--//RIGHT GATE-->
+	<div class="rightGate"></div>
+	<div class="gateTextRIGHT">
+	    <div><h1>CV</h1></div>
+	</div>
+	<!--//STUFF BEHIND GATES -->
+	<section class="behindPorts">
+	    <!-- INSERT VAULT STUFF HERE -->
+	    <h2><a ng-click="hentTekst()">My CV</a></h2><br /><br />
+	    <h2><a href='../documents/university_grades.pdf' target="_blank">University Grades</a></h2><br /><br />
+	    <h2><a href='mailto:walter@famdahl.no' target="_blank" rel="author">Contact me</a></h2><br /><br />
+	</section>
+
+	<!--Vault bottom buttons under here: -->
+	<div class="buttonTags">
+	    <div class="lessExample" id="openLessExample">Example: <span>Less</span></div>
+	    <a href="http://no.linkedin.com/pub/walter-k-dahl/92/588/859/" target="_blank"><div class="linkedIn">LinkedIn</div></a>
+	    <a href="http://thelastcard.github.io/Walters-Vault/" target="_blank"><div class="vaultGit">GitHub: <span>Walters Vault</span></div></a>
+	</div>
+	</div>
+
+	<div id="lessExample" title="Example of Less used in this document" style="text-align: left !important">
+	<p></p>
+	</div>
+</div>
+
+<footer><small><i>Content &COPY;copyright 2014 Walter K. Dahl</i></small></footer>
+<!-- SCRIPTS-->
+<script src="scripts/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="scripts/Walters_Notes.js"></script>
+<script src="scripts/Walters_Vault.js"></script>
+<noscript><h1>Your browser does not support JavaScript!</h1></noscript>

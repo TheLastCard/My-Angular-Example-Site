@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23.mar.2014, 22:20:36
+    Author     : Walter
+*/
+
+//****             WALTERS NOTES Build 1.0                 ****/
+.Note h2{
+   margin-left: 20px;
+}
+
+.NotesContainer .noteText{
+    margin: 20px 0 0 30px; 
+    line-height: 20px;
+}
+.NotesContainer .noteText a{
+    color: black;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.NotesContainer .noteText ul
+{
+    list-style-image:url('../img/starBullet.png');
+}
+ul li{
+    text-align: left !important;
+}
+.Note{
+    z-index: 2;
+    font-family: 'Nothing You Could Do', cursive;
+    color: #444;
+    border-radius:5px;
+    height: 100%;
+    width: auto;
+    box-shadow: inset -2px -2px 4px #ffff77,inset 2px 2px 4px #ffff77, 3px 3px 4px #BBB;
+    -ms-transform-origin:0% 0%; /* IE 9 */
+    -webkit-transform-origin:0% 0%; /* Chrome, Safari, Opera */
+    transform-origin: 0% 0%;
+    border: 2px solid hsla(0,0%,0%,0);
+    background:#ffff99;
+    background-image: url('../img/stars.png');
+    background-position: 100% 100%;
+    background-repeat: repeat-x;
+    background-size: 50%;
+    background-clip: border-box;
+    cursor: pointer;
+}
+.noteImage{
+    font-family: 'Nothing You Could Do', cursive;
+    -ms-transform-origin:0% 0%; /* IE 9 */
+    -webkit-transform-origin:0% 0%; /* Chrome, Safari, Opera */
+    transform-origin: 0% 0%;
+    background-color: #fcfcfc;
+    z-index: 0;
+    position: absolute;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    border: 1px solid hsla(0,0%,0%,0);
+    font-size: 0.5em;
+    text-align: center;
+}
+.noteImage:hover{
+    cursor:pointer;
+}
+.noteImage:first-of-type h4{
+    margin-top: 108px;
+}
+

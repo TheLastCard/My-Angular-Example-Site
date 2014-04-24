@@ -7,26 +7,58 @@
   padding: 0.2em 0;
 }
 
-/* line 12, main.scss */
+/* .container{
+  max-width: 100% !important;
+  width: auto !important;
+}
+ */
+/* line 16, main.scss */
 h3:first-child {
   border-bottom: 1px solid black !important;
   padding: 15px 0 15px 0;
 }
 
 /* Space out content a bit */
-/* line 17, main.scss */
+/* line 21, main.scss */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #CCC;
+  background: -webkit-linear-gradient(180deg, white 0%, rgba(32, 159, 223, 0.25) 50%, rgba(32, 159, 223, 0.2) 80%, transparent 100%);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(180deg, white 0%, rgba(32, 159, 223, 0.25) 50%, rgba(32, 159, 223, 0.2) 80%, transparent 100%);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(180deg, white 0%, rgba(32, 159, 223, 0.25) 50%, rgba(32, 159, 223, 0.2) 80%, transparent 100%);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(180deg, #ffffff 0%, rgba(32, 159, 223, 0.25) 50%, rgba(32, 159, 223, 0.2) 80%, transparent 100%);
+  /* Standard syntax */
+  background-color: #b5e3c8;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sans-serif !important;
+  text-align: left;
 }
 
-/* line 22, main.scss */
+/* line 32, main.scss */
+.backgroundImagesContainer {
+  height: 600px;
+  background-image: url(../img/pens.png), url(../img/coffee_stain.png), url(../img/coffee_stain2.png);
+  background-repeat: no-repeat;
+  background-position: 12% 100%, 95% 10%, 90% 15%;
+}
+
+/* line 39, main.scss */
+footer {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  margin: 0px 10px 5px 0px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 46, main.scss */
 .highlighted {
   background-color: yellow;
 }
 
-/* line 26, main.scss */
+/* line 50, main.scss */
 .openUp,
 .openUp a {
   color: black;
@@ -36,7 +68,7 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* line 34, main.scss */
+  /* line 58, main.scss */
   .container {
     max-width: 730px;
   }

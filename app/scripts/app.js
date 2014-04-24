@@ -5,17 +5,22 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'ngAnimate'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when('/Angular', {
+        templateUrl: 'views/angular_eksempler.html',
+        controller: 'AngularEksemplerCtrl'
       })
-      .when('/FlereEksempler', {
-        templateUrl: 'views/FlereEksempler.html',
-        controller: 'FlereEksemplerCtrl'
+      .when('/AngularGalleri', {
+        templateUrl: 'views/Angular_Galleri.html',
+        controller: 'Angular_GalleriCtrl'
+      })
+      .when('/', {
+        templateUrl: 'views/cv.html',
+        controller: 'CvCtrl'
       })
       .otherwise({
         redirectTo: '/'
