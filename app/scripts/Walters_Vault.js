@@ -17,6 +17,11 @@ var mainGateDelay = mainGateTransitionTime*1000;
 var secondGatesDelay = gatesTransitionTime*1000;
 var bookmarksDelay = bookmarksMenuTime*1000;
 var isGatesOpen = false;
+var mainGate = $(".mainGate");
+var gateTextLEFT = $(".gateTextLEFT");
+var gateTextRIGHT = $(".gateTextRIGHT");
+var behindPorts = $(".behindPorts");
+var lessExampleID = $( "#lessExample" );
 //END***************
 
 $(function(){
@@ -61,53 +66,53 @@ $(function(){
 
 function initiateVault(){
      //Sets transition time for gate sink-in
-    $(".mainGate").css({
+    mainGate.css({
         "transition-duration": mainGateTransitionTime+"s",
         "-webkit-transition-duration": mainGateTransitionTime+"s"
     });
     
     //Sets transition tim for gates slide-up
-    $(".behindPorts").css({
+    behindPorts.css({
         "transition-duration": gatesTransitionTime+"s",
         "-webkit-transition-duration": gatesTransitionTime+"s",
         "border-left": "inset 1px solid hsla(0,0%,0%,0)",
         "border-right": "inset 1px solid hsla(0,0%,0%,0)"
     });
 
-    $(".gateTextLEFT").css({
+    gateTextLEFT.css({
         "transition-duration": gatesTransitionTime+"s",
         "-webkit-transition-duration": gatesTransitionTime+"s"
     });
-    $(".gateTextRIGHT").css({
+    gateTextRIGHT.css({
         "transition-duration": gatesTransitionTime+"s",
         "-webkit-transition-duration": gatesTransitionTime+"s"
     });
 }
 
 function openMainGate(){
-    $(".mainGate").css({"box-shadow": "inset 2px 5px 5px #111, inset -5px 5px 5px #111"});
+    mainGate.css({"box-shadow": "inset 2px 5px 5px #111, inset -5px 5px 5px #111"});
 }
 function closeMainGate(){
     setTimeout(function(){
-        $(".mainGate").css({"box-shadow": "none"});
+        mainGate.css({"box-shadow": "none"});
     }, (secondGatesDelay+bookmarksDelay) );
 }
 
 function gatesVisibilityStepOnOpen(){
     setTimeout(function(){
-        $(".mainGate").css({"display": "none","width": "0px"});
+        mainGate.css({"display": "none","width": "0px"});
         $(".leftGate, .rightGate").css("display", "block");
     }, mainGateDelay);
 }
 function gatesVisibilityStepOnClose(){
     setTimeout(function(){
-        $(".mainGate").css({"display": "block","width": "480px"});
+        mainGate.css({"display": "block","width": "480px"});
         $(".leftGate, .rightGate").css("display", "none");
     }, bookmarksDelay);
 }
 function openGates(){
     setTimeout(function(){
-    	$(".behindPorts").css({
+    	behindPorts.css({
             "width": "440px",
             "ms-transform": "translateX(-220px)",
             "-webkit-transform": "translateX(-220px)",
@@ -115,13 +120,13 @@ function openGates(){
             "border-left": "inset 1px solid hsla(0,0%,0%,1)",
          	"border-right": "inset 1px solid hsla(0,0%,0%,1)"
         });
-        $(".gateTextLEFT").css({
+        gateTextLEFT.css({
             "-ms-transform":"translate(-220px,0px)",
             "-webkit-transform":"translate(-220px,0px)",
             "transform":"translate(-220px,0px)",
             "clip": "rect(0px,240px,320px,220px)"
         });
-        $(".gateTextRIGHT").css({
+        gateTextRIGHT.css({
             "-ms-transform":"translate(220px,0px)",
             "-webkit-transform":"translate(220px,0px)",
             "transform":"translate(220px,0px)",
@@ -137,7 +142,7 @@ function closeGates(){
     hideVaultContent();
     
     setTimeout(function(){
-    	$(".behindPorts").css({
+    	behindPorts.css({
             "width": "0px",
             "ms-transform": "translateX(0px)",
             "-webkit-transform": "translateX(0px)",
@@ -145,13 +150,13 @@ function closeGates(){
             "border-left": "inset 1px solid hsla(0,0%,0%,0)",
          	"border-right": "inset 1px solid hsla(0,0%,0%,0)"
         });
-        $(".gateTextLEFT").css({
+        gateTextLEFT.css({
             "-ms-transform":"translate(-0px,0px)",
             "-webkit-transform":"translate(0px,0px)",
             "transform":"translate(0px,0px)",
             "clip": "rect(0px,240px,320px,0px)"
         });
-        $(".gateTextRIGHT").css({
+        gateTextRIGHT.css({
             "-ms-transform":"translate(0px,0px)",
             "-webkit-transform":"translate(0px,0px)",
             "transform":"translate(0px,0px)",
@@ -208,7 +213,7 @@ function hideVaultContent(){
 }
 
 function initiateModals(){
-    $( "#lessExample" ).dialog({
+    lessExampleID.dialog({
       autoOpen: false,
       width:'auto',
       height:'auto',
@@ -233,8 +238,8 @@ function initiateModals(){
       }
     });
     $( "#openLessExample" ).click(function() {
-        $( "#lessExample" ).css({"width": "600px"});
-        $( "#lessExample" ).dialog( "open" );
+        lessExampleID.css({"width": "600px"});
+        lessExampleID.dialog( "open" );
         $('#lessExample p').html("<span class='gra'>*classes*</span> <br>\
                                     <span class='brw'>.transition</span> (<span class='blue'>@where: all</span>, <span class='blue'>@seconds</span>: <span class='blue'>0.25</span><span class='ora'>s</span>){<br>\
                                     <span class='brw'>transition:</span>               <span class='blue'>@arguments</span>;<br>\

@@ -72,13 +72,15 @@ var imageCloseTime = 1;
 var isNoteOpen = false;
 //Testing to see if image is open or not
 var imageIsOpen = false;
+var note = $(".Note");
+var noteImage = $(".noteImage");
 
 $(function(){
     //Initiating the Note with Image beneath first time
     initiateNote();
 
     //Notes functions. Let us click to open or close note
-    $(".Note").click(function(){
+    note.click(function(){
        if(isNoteOpen){
        closeNote();
        }
@@ -88,7 +90,7 @@ $(function(){
        setLinksUnderline();
     });
     //Leaving note
-    $(".Note").mouseleave(function(){
+    note.mouseleave(function(){
         if(userCanCloseNoteWithMouseOut == true){
             closeNote();
            //Remove border when mouse is leaving note
@@ -98,7 +100,7 @@ $(function(){
        
     });
     //When entering note. Function to remove border on open note
-    $(".Note").mouseenter(function(){
+    note.mouseenter(function(){
         //Make border visible when mouseover
         if(isNoteOpen){
             $(this).css({"border": "2px solid hsla(0,0%,0%,0.0)"});
@@ -109,7 +111,7 @@ $(function(){
     });
 
     //Image functions. Function to close or open image with click
-    $(".noteImage").click(function(){
+    noteImage.click(function(){
         if(!imageIsOpen){
         imageIsOpen = true;
         openNoteImage();
@@ -120,12 +122,12 @@ $(function(){
         }
      });
      //When leaving image (hover)
-    $(".noteImage").mouseleave(function(){
+    noteImage.mouseleave(function(){
        //Remove border when mouse is leaving note
        $(this).css("border", "1px solid hsla(0,0%,0%,0)");
     });
     //When entering image (hover)
-    $(".noteImage").mouseenter(function(){
+    noteImage.mouseenter(function(){
         //Test to check if image is open or not. More subtle bordre when opened
         if(imageIsOpen){
             $(this).css("border", "1px solid hsla(0,0%,50%,0.5)");
@@ -146,7 +148,7 @@ $(function(){
      });
      
      //Image initiation
-     $(".noteImage").css({
+     noteImage.css({
          "margin-left": (containerWidth/2-(imageWidth/2)+10)+"px",
          "margin-top": "75px",
          "width": imageWidth+"px",
@@ -160,7 +162,7 @@ $(function(){
      });
      
      //Note initiation
-     $(".Note").css({
+     note.css({
          transform: "rotate("+rotateAmount+"deg) scale("+idleScale+")",
          "-ms-transform": "rotate("+rotateAmount+"deg) scale("+idleScale+")",
          "-webkit-transform": "rotate("+rotateAmount+"deg) scale("+idleScale+")"
@@ -170,7 +172,7 @@ $(function(){
  }
 
  function openNote(){
-     $(".Note").css({
+     note.css({
          "transition-duration": noteOpenTime+"s",
          "-webkit-transition-duration": noteOpenTime+"s",
          //Transform
@@ -187,7 +189,7 @@ $(function(){
      }, timeBeforeUserCanCloseNoteWithMouseOut);
  }
  function closeNote(){
-     $(".Note").css({
+     note.css({
          "transition-duration": noteCloseTime+"s",
          "-webkit-transition-duration": noteCloseTime+"s",
          //Transform
@@ -201,7 +203,7 @@ $(function(){
  }
 
  function openNoteImage(){
-     $(".noteImage").css({
+     noteImage.css({
          "transition-duration": imageOpenTime+"s",
          "-webkit-transition-duration": imageOpenTime+"s",
          //Transform
@@ -211,12 +213,12 @@ $(function(){
          //Border change when open
          "border": "1px solid hsla(0,0%,0%,0)",
          "box-shadow": "inset -1px -1px 2px #fefefe,inset 1px 1px 2px #fefefe, 1px 1px 1px #AAA"
-     });
-     $(".noteImage").html("Click to close<h4>"+imageName+"</h4>");
+     })
+     .html("Click to close<h4>"+imageName+"</h4>");
  }
  function closeNoteImage(){
-     $(".noteImage").html("");
-     $(".noteImage").css({
+     noteImage.html("")
+     .css({
          "transition-duration": imageCloseTime+"s",
          "-webkit-transition-duration": imageCloseTime+"s",
          //Transform
@@ -229,10 +231,10 @@ $(function(){
  }
 
 function unsetNoteLinks(){
-    $(".Note").html(noteContentWITHOUTlinks);
+    note.html(noteContentWITHOUTlinks);
 }
 function setNoteLinks(){
-    $(".Note").html(noteContentWITHlinks);
+    note.html(noteContentWITHlinks);
 }
 function setLinksUnderline(){
     $(".noteText ul li a").each(function(){
