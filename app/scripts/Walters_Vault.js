@@ -22,6 +22,8 @@ var gateTextLEFT = $(".gateTextLEFT");
 var gateTextRIGHT = $(".gateTextRIGHT");
 var behindPorts = $(".behindPorts");
 var lessExampleID = $( "#lessExample" );
+var VaultContainer = $(".VaultContainer");
+var closeVault = $(".closeVault");
 //END***************
 
 $(function(){
@@ -29,7 +31,7 @@ $(function(){
     initiateVault();
     
     //OPEN VAULT
-    $(".VaultContainer").click(function(){
+    VaultContainer.click(function(){
         if(!isGatesOpen){
             isGatesOpen = true;
             openMainGate();
@@ -38,7 +40,7 @@ $(function(){
         }
     });
     //CLOSE VAULT
-    $(".closeVault").click(function(){
+    closeVault.click(function(){
         if(isGatesOpen){
             isGatesOpen = false;
             closeGates();
@@ -47,16 +49,24 @@ $(function(){
         }
     });
     //VAULT HOVER
-    $(".VaultContainer").hover(
+    VaultContainer.hover(
         function(){
-            $(".gateTextLEFT div, .gateTextRIGHT div").css({
+            gateTextLEFT.find("div").css({
+                "color": "hsla(0,0%,0%,0.5)",
+                "border": "solid 15px hsla(0,0%,0%,0.5)"
+            });
+            gateTextRIGHT.find("div").css({
                 "color": "hsla(0,0%,0%,0.5)",
                 "border": "solid 15px hsla(0,0%,0%,0.5)"
             });
         },
         function(){
         if(!isGatesOpen){
-            $(".gateTextLEFT div, .gateTextRIGHT div").css({
+            gateTextLEFT.find("div").css({
+                "color": "hsla(0,0%,50%,0.25)",
+                "border": "solid 15px hsla(0,0%,50%,0.25)"
+            });
+            gateTextRIGHT.find("div").css({
                 "color": "hsla(0,0%,50%,0.25)",
                 "border": "solid 15px hsla(0,0%,50%,0.25)"
             });
@@ -162,7 +172,13 @@ function closeGates(){
             "transform":"translate(0px,0px)",
             "clip": "rect(0px,480px,320px,240px)"
         }); 
-        $(".gateTextLEFT div, .gateTextRIGHT div").css({
+        gateTextLEFT.find("div")
+        .css({
+            "color": "hsla(0,0%,50%,0.25)",
+            "border": "solid 15px hsla(0,0%,50%,0.25)"
+        });
+        gateTextRIGHT.find("div")
+        .css({
             "color": "hsla(0,0%,50%,0.25)",
             "border": "solid 15px hsla(0,0%,50%,0.25)"
         });
@@ -172,8 +188,8 @@ function closeGates(){
 
 function displayVaultContent(){
     setTimeout(function(){
-        $(".behindPorts a").css("display", "block");
-        $(".closeVault").css({
+        behindPorts.find("a").css("display", "block");
+        closeVault.css({
             "clip": "rect(0px,35px,50px,0px)",
             "transition-duration": bookmarksMenuTime+"s",
             "-webkit-transition-duration": bookmarksMenuTime+"s"
@@ -194,8 +210,8 @@ function displayVaultContent(){
 }
 
 function hideVaultContent(){
-    $(".behindPorts a").css("display", "none");
-    $(".closeVault").css({
+    behindPorts.find("a").css("display", "none");
+    closeVault.css({
         "clip": "rect(50px,35px,50px,0px)"
     });
     $(".lessExample").css({
@@ -240,7 +256,7 @@ function initiateModals(){
     $( "#openLessExample" ).click(function() {
         lessExampleID.css({"width": "600px"});
         lessExampleID.dialog( "open" );
-        $('#lessExample p').html("<span class='gra'>*classes*</span> <br>\
+        lessExampleID.find('p').html("<span class='gra'>*classes*</span> <br>\
                                     <span class='brw'>.transition</span> (<span class='blue'>@where: all</span>, <span class='blue'>@seconds</span>: <span class='blue'>0.25</span><span class='ora'>s</span>){<br>\
                                     <span class='brw'>transition:</span>               <span class='blue'>@arguments</span>;<br>\
                                     <span class='brw'>-webkit-transition</span>:       <span class='blue'>@arguments</span>;<br>\
